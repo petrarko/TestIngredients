@@ -1,11 +1,15 @@
 
+
+
 def calculate_amount_to_clean(recipes: set):
     counter = 1
-    ingredients_already_used = set()
+    recipes_used = []
     for recipe in recipes:
-        if not (recipe.issubset(ingredients_already_used) or ingredients_already_used.issubset(recipe)):
-            counter += 1
-        ingredients_already_used.update(recipe)
+        for recipe_used in recipes_used:
+            if not (recipe.issubset(recipe_used) or recipe_used.issubset(recipe)):
+                counter += 1
+                break
+        recipes_used.append(recipe)
     return counter
 
 

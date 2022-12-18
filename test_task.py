@@ -42,3 +42,12 @@ class Test(TestCase):
                                   "1 4\n"
                                   )
         self.assertEqual(calculate_amount_to_clean(action_list), 3)
+
+
+    def test_6(self):
+        action_list = parse_input("3 2\n"
+                                  "1 2\n"
+                                  "1 1 2\n"
+                                  "2 1\n"
+                                  )
+        self.assertEqual(calculate_amount_to_clean(action_list), 2)
